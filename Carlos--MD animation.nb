@@ -1,0 +1,2635 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    131462,       2625]
+NotebookOptionsPosition[    128887,       2553]
+NotebookOutlinePosition[    129274,       2570]
+CellTagsIndexPosition[    129231,       2567]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"ChemicalData", "[", "\"\<Water\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7070662074164343`*^9, 
+  3.7070662129937153`*^9}},ExpressionUUID->"9db15828-5aa2-421a-be72-\
+8d98ef3008ec"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {RGBColor[0.800498, 0.201504, 0.192061], AbsoluteThickness[0.55], InsetBox[
+      StyleBox["\<\"O\"\>",
+       StripOnInput->False,
+       ScriptSizeMultipliers->0.8,
+       ScriptMinSize->8,
+       FontSize->Scaled[0.2581177311404031],
+       FontWeight->Plain], {253.69000000000003, -15.5}], 
+     LineBox[{{272.14316523275716`, -4.847334781834798}, {280.54, 0.}}], 
+     {RGBColor[0.43333333333333335`, 0.4666666666666667, 0.4666666666666667], 
+      InsetBox[
+       StyleBox["\<\"H\"\>",
+        StripOnInput->False,
+        ScriptSizeMultipliers->0.8,
+        ScriptMinSize->8,
+        FontSize->Scaled[0.2581177311404031],
+        FontWeight->Plain], {307.39, 15.5}], 
+      LineBox[{{280.54, 0.}, {290.33640229564344`, 5.655278792643328}}]}}, 
+    {RGBColor[0.800498, 0.201504, 0.192061], AbsoluteThickness[0.55], InsetBox[
+      StyleBox["\<\"O\"\>",
+       StripOnInput->False,
+       ScriptSizeMultipliers->0.8,
+       ScriptMinSize->8,
+       FontSize->Scaled[0.2581177311404031],
+       FontWeight->Plain], {253.69000000000003, -15.5}], 
+     LineBox[{{235.2376938789542, -4.845846717220688}, {226.84500000000003`, 
+      0.}}], 
+     {RGBColor[0.43333333333333335`, 0.4666666666666667, 0.4666666666666667], 
+      InsetBox[
+       StyleBox["\<\"H\"\>",
+        StripOnInput->False,
+        ScriptSizeMultipliers->0.8,
+        ScriptMinSize->8,
+        FontSize->Scaled[0.2581177311404031],
+        FontWeight->Plain], {200., 15.5}], 
+      LineBox[{{226.84500000000003`, 0.}, {217.0528037513776, 
+       5.65390358925861}}]}}}, {}, {}},
+  BaseStyle->{FontFamily -> "Times", FontSize -> 10},
+  ImageSize->{{0., 46.49041329699509}, {0., 26.056041866164172`}},
+  PlotRange->{{177.96318579800152`, 325.0194513615988}, {-44.88241893599796, 
+   37.53681420199847}}]], "Output",
+ CellChangeTimes->{
+  3.707066244063118*^9},ExpressionUUID->"a89052e2-2b91-401e-865e-\
+bc71a5374729"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"coords", "=", 
+  RowBox[{
+   RowBox[{"ChemicalData", "[", 
+    RowBox[{"\"\<Water\>\"", ",", "\"\<AtomPositions\>\""}], "]"}], "/.", 
+   RowBox[{"q_Quantity", "\[RuleDelayed]", 
+    RowBox[{"QuantityMagnitude", "[", "q", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.707066256664399*^9, 3.7070662706381273`*^9}, {
+  3.7070663079663486`*^9, 
+  3.707066324764288*^9}},ExpressionUUID->"11d2be0e-41e2-437b-9617-\
+4abd53024873"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "6.3259`5."}], ",", 
+     RowBox[{"-", "25.268`5."}], ",", "26.21`5."}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"74.277`5.", ",", "26.059`5.", ",", "17.009`5."}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "67.951`5."}], ",", 
+     RowBox[{"-", "0.79118`5."}], ",", 
+     RowBox[{"-", "43.219`5."}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.707066266883976*^9, 3.707066271618544*^9}, 
+   3.7070663263784113`*^9},ExpressionUUID->"e9ab4911-f092-4391-a109-\
+60d2b4fb328e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"types", "=", 
+  RowBox[{"ChemicalData", "[", 
+   RowBox[{"\"\<Water\>\"", ",", "\"\<VertexTypes\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7070662770571136`*^9, 
+  3.707066293348686*^9}},ExpressionUUID->"d1e3c608-ade9-4345-9cb0-\
+9713cc4d6ac1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"O\"\>", ",", "\<\"H\"\>", ",", "\<\"H\"\>"}], "}"}]], "Output",\
+
+ CellChangeTimes->{
+  3.7070662941617737`*^9},ExpressionUUID->"02424fcf-6ae8-4a30-8729-\
+be639d8349d8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bonds", "=", 
+  RowBox[{"ChemicalData", "[", 
+   RowBox[{"\"\<Water\>\"", ",", "\"\<EdgeRules\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.707066497229347*^9, 
+  3.707066509631612*^9}},ExpressionUUID->"32357741-d8d1-4133-a2cc-\
+5a02a5658a0f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"1", "\[Rule]", "2"}], ",", 
+   RowBox[{"1", "\[Rule]", "3"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7070665102068367`*^9},ExpressionUUID->"d9600863-39ea-45e6-8eb9-\
+cc04b9ac9357"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ElementData", "[", 
+  RowBox[{"\"\<Hydrogen\>\"", ",", "\"\<IconColor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.707067084944045*^9, 
+  3.7070671003072653`*^9}},ExpressionUUID->"2c4a4cdf-6aa1-496c-abd7-\
+ca75277f1588"],
+
+Cell[BoxData[
+ InterpretationBox[
+  ButtonBox[
+   TooltipBox[
+    GraphicsBox[{
+      {GrayLevel[0], RectangleBox[{0, 0}]}, 
+      {GrayLevel[0], RectangleBox[{1, -1}]}, 
+      {RGBColor[0.93, 1, 1], RectangleBox[{0, -1}, {2, 1}]}},
+     AspectRatio->1,
+     Frame->True,
+     FrameStyle->RGBColor[
+      0.6200000000000001, 0.6666666666666666, 0.6666666666666666],
+     FrameTicks->None,
+     ImageSize->
+      Dynamic[{Automatic, 1.35 CurrentValue["FontCapHeight"]/
+        AbsoluteCurrentValue[Magnification]}],
+     PlotRangePadding->None],
+    "RGBColor[0.93, 1, 1]"],
+   Appearance->None,
+   BaseStyle->{},
+   BaselinePosition->Baseline,
+   ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+     If[
+      Not[
+       AbsoluteCurrentValue["Deployed"]], 
+      SelectionMove[Typeset`box$, All, Expression]; 
+      FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+      FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0.93, 1, 1]; 
+      FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+      MathLink`CallFrontEnd[
+        FrontEnd`AttachCell[Typeset`box$, 
+         FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+         Left, Top}, 
+         "ClosingActions" -> {
+          "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+   DefaultBaseStyle->{},
+   Evaluator->Automatic,
+   Method->"Preemptive"],
+  RGBColor[0.93, 1, 1],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.7070671015934887`*^9},ExpressionUUID->"6ff54b79-8648-4593-b987-\
+3797a37ec422"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"moleculePlot", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"atoms", ":", 
+      RowBox[{"{", "__String", "}"}]}], ",", 
+     RowBox[{"bonds", ":", 
+      RowBox[{"{", "__Rule", "}"}]}], ",", 
+     RowBox[{"coords", ":", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"_Real", ",", "_Real", ",", "_Real"}], "}"}], ".."}], 
+       "}"}]}]}], "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"spheres", ",", 
+      RowBox[{"cylinders", "=", 
+       RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"spheres", "=", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"ElementData", "[", 
+            RowBox[{
+             RowBox[{"Switch", "[", 
+              RowBox[{
+              "#1", ",", "\"\<O\>\"", ",", "\"\<Oxygen\>\"", ",", "\"\<H\>\"",
+                ",", "\"\<Hydrogen\>\"", ",", "\"\<C\>\"", ",", 
+               "\"\<Carbon\>\""}], "]"}], ",", "\"\<IconColor\>\""}], "]"}], 
+           ",", 
+           RowBox[{"Sphere", "[", 
+            RowBox[{"#2", ",", 
+             RowBox[{"Switch", "[", 
+              RowBox[{
+              "#1", ",", "\"\<H\>\"", ",", "24", ",", "_", ",", "31"}], 
+              "]"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"atoms", ",", "coords"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"cylinders", "=", 
+      RowBox[{"Apply", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"LightGray", ",", 
+           RowBox[{"Cylinder", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+               "coords", "\[LeftDoubleBracket]", "#1", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+               "coords", "\[LeftDoubleBracket]", "#2", 
+                "\[RightDoubleBracket]"}]}], "}"}], ",", "10"}], "]"}]}], 
+          "}"}], "&"}], ",", 
+        RowBox[{"List", "@@@", "bonds"}], ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"spheres", ",", "cylinders"}], "}"}], ",", 
+       RowBox[{"BoxRatios", "\[Rule]", "Automatic"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7070663625477867`*^9, 3.707066459338524*^9}, {
+  3.707066518086833*^9, 3.7070670189694433`*^9}, {3.707067128733539*^9, 
+  3.707067164168955*^9}, {3.707067212045856*^9, 3.707067219789106*^9}, {
+  3.70706727662741*^9, 
+  3.7070672838174753`*^9}},ExpressionUUID->"f697d4b5-83f2-4d14-9164-\
+c83a6e2b5fca"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"moleculePlot", "[", 
+  RowBox[{"{", 
+   RowBox[{"types", ",", "bonds", ",", "coords"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.707066751516697*^9, 
+  3.707066764815074*^9}},ExpressionUUID->"dc884658-7fdd-4fea-b17b-\
+c6f49c131b6e"],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {RGBColor[0.800498, 0.201504, 0.192061], 
+     SphereBox[{-6.3259, -25.268, 26.21}, 31]}, 
+    {RGBColor[0.93, 1, 1], SphereBox[{74.277, 26.059, 17.009}, 24]}, 
+    {RGBColor[0.93, 1, 1], SphereBox[{-67.951, -0.79118, -43.219}, 24]}}, {
+    {GrayLevel[0.85], 
+     CylinderBox[{{-6.3259, -25.268, 26.21}, {74.277, 26.059, 17.009}}, 
+      10]}, 
+    {GrayLevel[0.85], 
+     CylinderBox[{{-6.3259, -25.268, 26.21}, {-67.951, -0.79118, -43.219}}, 
+      10]}}},
+  BoxRatios->Automatic,
+  Boxed->False,
+  ImageSize->{360.97146035209755`, 350.8789993105633},
+  ViewPoint->{-1.6531187366974287`, 1.4384330249724577`, 2.5783926921724865`},
+  
+  ViewVertical->{-0.611772029130266, 
+   1.4115838694940042`, -0.08671746338405932}]], "Output",
+ CellChangeTimes->{{3.707066765764845*^9, 3.707066775699102*^9}, 
+   3.707066829856224*^9, 3.707067024129888*^9, 3.7070671792112837`*^9, 
+   3.707067221632412*^9, 
+   3.707067333829153*^9},ExpressionUUID->"a5fd83c2-1e18-4bf1-af9e-\
+694e91482c10"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.707067523283311*^9, 
+  3.7070675262892313`*^9}},ExpressionUUID->"cbb5dcab-a933-4d97-8557-\
+9ecf7b366257"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"coordsMD", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "20"}], ",", "20"}], "}"}], "]"}], "+", "#"}], "&"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"coords", ",", 
+       RowBox[{"{", "100", "}"}]}], "]"}], ",", 
+     RowBox[{"{", "3", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"First", "@", "%"}]}], "Input",
+ CellChangeTimes->{{3.7070674250406*^9, 3.707067514641995*^9}, {
+  3.707067550263761*^9, 
+  3.7070675574072437`*^9}},ExpressionUUID->"8c8b92aa-902a-4197-921f-\
+8487e71f9868"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2.8722024872173266`", ",", 
+     RowBox[{"-", "37.332864286529734`"}], ",", "28.31248993124221`"}], "}"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "85.72621220281907`", ",", "9.849812631465607`", ",", 
+     "22.19785217345155`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "70.90354408463482`"}], ",", "17.301348365661052`", ",", 
+     RowBox[{"-", "47.63502832932256`"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.707067559655366*^9},ExpressionUUID->"9d03d8f7-cef1-4d96-aec7-\
+2ac1d411cdd8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"First", "@", "coords"}]], "Input",
+ CellChangeTimes->{{3.707067562513291*^9, 
+  3.70706756563099*^9}},ExpressionUUID->"0a302b6c-7971-4e98-855c-\
+0f2820abdac8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "6.3259`5."}], ",", 
+   RowBox[{"-", "25.268`5."}], ",", "26.21`5."}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7070675663946333`*^9},ExpressionUUID->"fa285bad-5804-490f-88a7-\
+9c2bcd68f115"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListAnimate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"moleculePlot", "[", 
+     RowBox[{"{", 
+      RowBox[{"types", ",", "bonds", ",", "#"}], "}"}], "]"}], "&"}], "/@", 
+   "coordsMD"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7070675873673353`*^9, 
+  3.707067653377575*^9}},ExpressionUUID->"5164a76c-e10c-49e2-bace-\
+15fdfd9fc4a5"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`i7$$ = 60, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {
+    "\"min\"" :> {$CellContext`i7$$ = 1}, 
+     "\"max\"" :> {$CellContext`i7$$ = 100}}, Typeset`bookmarkMode$$ = "Menu",
+     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`i7$$], 1, ""}, 1, 100, 1}}, Typeset`size$$ = 
+    Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`i7$174870$$ = 0}, 
+    PaneBox[
+     PanelBox[
+      DynamicWrapperBox[GridBox[{
+         {
+          ItemBox[
+           ItemBox[
+            TagBox[
+             StyleBox[GridBox[{
+                {"\<\"\"\>", 
+                 AnimatorBox[Dynamic[$CellContext`i7$$], {1, 100, 1},
+                  AnimationRate->2.147483648000001,
+                  AnimationRunTime->28.038124084472656`,
+                  AnimationRunning->False,
+                  AnimationTimeIndex->27.57246279716491,
+                  
+                  AppearanceElements->{
+                   "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons",
+                     "DirectionButton"},
+                  AutoAction->False,
+                  DisplayAllSteps->True]}
+               },
+               AutoDelete->False,
+               
+               GridBoxAlignment->{
+                "Columns" -> {Right, {Left}}, "ColumnsIndexed" -> {}, 
+                 "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+              "ListAnimateLabel",
+              StripOnInput->False],
+             {"ControlArea", Top}],
+            Alignment->{Automatic, Inherited},
+            StripOnInput->False],
+           Background->None,
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            StyleBox[
+             PaneBox[
+              TagBox[
+               PaneSelectorBox[{1->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{2.8722024872173266`, -37.332864286529734`, 
+                    28.31248993124221}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{85.72621220281907, 9.849812631465607, 
+                    22.19785217345155}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-70.90354408463482, 
+                    17.301348365661052`, -47.63502832932256}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{2.8722024872173266`, -37.332864286529734`, 
+                    28.31248993124221}, {85.72621220281907, 9.849812631465607,
+                     22.19785217345155}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{2.8722024872173266`, -37.332864286529734`, 
+                    28.31248993124221}, {-70.90354408463482, 
+                    17.301348365661052`, -47.63502832932256}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 2->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-0.145598833313481, -24.798567316873694`, 
+                    38.252214828680756`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{84.47074907735804, 14.901178981727366`, 
+                    10.94937616203}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-70.18196425045173, -17.285795409534824`, \
+-57.16863764685515}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-0.145598833313481, -24.798567316873694`, 
+                    38.252214828680756`}, {84.47074907735804, 
+                    14.901178981727366`, 10.94937616203}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-0.145598833313481, -24.798567316873694`, 
+                    38.252214828680756`}, {-70.18196425045173, \
+-17.285795409534824`, -57.16863764685515}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 3->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-20.90243304366589, -34.636439264944954`, 
+                    18.47953411954515}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{56.33179068584349, 35.54437648653294, 
+                    26.164170620147573`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-53.254104341074324`, 
+                    3.370045241392117, -62.6247771511471}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-20.90243304366589, -34.636439264944954`, 
+                    18.47953411954515}, {56.33179068584349, 35.54437648653294,
+                     26.164170620147573`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-20.90243304366589, -34.636439264944954`, 
+                    18.47953411954515}, {-53.254104341074324`, 
+                    3.370045241392117, -62.6247771511471}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 4->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-3.4891886108248498`, -25.833026623418142`, 
+                    17.879392683724177`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{57.167489016296884`, 15.54140012159856, 
+                    0.9043839231235324}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-77.17317122949373, -11.629656410444252`, \
+-24.74022490907972}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-3.4891886108248498`, -25.833026623418142`, 
+                    17.879392683724177`}, {57.167489016296884`, 
+                    15.54140012159856, 0.9043839231235324}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-3.4891886108248498`, -25.833026623418142`, 
+                    17.879392683724177`}, {-77.17317122949373, \
+-11.629656410444252`, -24.74022490907972}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 5->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{6.908414028071083, -13.484732627519037`, 
+                    14.56509265709618}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{81.23347847394284, 33.41156976411318, 
+                    13.445394119799253`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-52.34500576699625, 
+                    14.337891380095268`, -44.348033032632124`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.908414028071083, -13.484732627519037`, 
+                    14.56509265709618}, {81.23347847394284, 33.41156976411318,
+                     13.445394119799253`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.908414028071083, -13.484732627519037`, 
+                    14.56509265709618}, {-52.34500576699625, 
+                    14.337891380095268`, -44.348033032632124`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 6->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-21.833549025479005`, -38.07379052696324, 
+                    30.557233392446854`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.31430885491729, 8.226860111817498, 
+                    34.81604600619637}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-72.99626064862147, 
+                    12.916775359705124`, -32.444620317745525`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-21.833549025479005`, -38.07379052696324, 
+                    30.557233392446854`}, {66.31430885491729, 
+                    8.226860111817498, 34.81604600619637}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-21.833549025479005`, -38.07379052696324, 
+                    30.557233392446854`}, {-72.99626064862147, 
+                    12.916775359705124`, -32.444620317745525`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 7->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{11.156318021348586`, -26.476934379097273`, 
+                    12.289108806753013`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{80.92545589469141, 41.61789598862765, 
+                    29.079503739774623`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-82.78198207510077, -2.7669343273306195`, \
+-40.9041656291234}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{11.156318021348586`, -26.476934379097273`, 
+                    12.289108806753013`}, {80.92545589469141, 
+                    41.61789598862765, 29.079503739774623`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{11.156318021348586`, -26.476934379097273`, 
+                    12.289108806753013`}, {-82.78198207510077, \
+-2.7669343273306195`, -40.9041656291234}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 8->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-17.57298736832713, -18.414660268711103`, 
+                    33.70234647996342}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{69.48545733495924, 11.292450147298279`, 
+                    26.524604484063175`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-78.0896218940903, 
+                    11.754329528469949`, -24.107031272565415`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-17.57298736832713, -18.414660268711103`, 
+                    33.70234647996342}, {69.48545733495924, 
+                    11.292450147298279`, 26.524604484063175`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-17.57298736832713, -18.414660268711103`, 
+                    33.70234647996342}, {-78.0896218940903, 
+                    11.754329528469949`, -24.107031272565415`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 9->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-12.504762685199527`, -36.01165200016787, 
+                    16.089190644716624`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{73.65936861618529, 10.375054881411696`, 
+                    4.426568851346715}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-59.21656949176102, -10.22556516537217, \
+-26.008893275775883`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.504762685199527`, -36.01165200016787, 
+                    16.089190644716624`}, {73.65936861618529, 
+                    10.375054881411696`, 4.426568851346715}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.504762685199527`, -36.01165200016787, 
+                    16.089190644716624`}, {-59.21656949176102, \
+-10.22556516537217, -26.008893275775883`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 10->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{13.309513962531373`, -7.969003161130303, 
+                    17.15345659232495}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{65.69340904392709, 23.90431274081082, 
+                    23.651603078657402`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-74.12126290666482, 
+                    12.010915318952808`, -38.72558294153141}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{13.309513962531373`, -7.969003161130303, 
+                    17.15345659232495}, {65.69340904392709, 23.90431274081082,
+                     23.651603078657402`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{13.309513962531373`, -7.969003161130303, 
+                    17.15345659232495}, {-74.12126290666482, 
+                    12.010915318952808`, -38.72558294153141}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 11->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-11.860100141372907`, -38.974253340273734`, 
+                    25.656208383888547`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{86.03188981280194, 29.033685669892986`, 
+                    13.107975872146696`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-55.32011502483377, 
+                    2.468846772131056, -29.91748101776583}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-11.860100141372907`, -38.974253340273734`, 
+                    25.656208383888547`}, {86.03188981280194, 
+                    29.033685669892986`, 13.107975872146696`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-11.860100141372907`, -38.974253340273734`, 
+                    25.656208383888547`}, {-55.32011502483377, 
+                    2.468846772131056, -29.91748101776583}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 12->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-12.69230649614769, -32.82272087779627, 
+                    31.672064152370417`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{79.79892767685762, 6.454930420295792, 
+                    10.526972206230624`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-58.58378139597511, 
+                    9.390563687137924, -57.825271137132624`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.69230649614769, -32.82272087779627, 
+                    31.672064152370417`}, {79.79892767685762, 
+                    6.454930420295792, 10.526972206230624`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.69230649614769, -32.82272087779627, 
+                    31.672064152370417`}, {-58.58378139597511, 
+                    9.390563687137924, -57.825271137132624`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 13->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{12.433691817761744`, -36.200730878828956`, 
+                    41.315939562158796`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{94.0993318359183, 28.87260740030104, 
+                    9.493803466806575}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-81.20623324710459, -11.536405385316751`, \
+-54.325730014546615`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{12.433691817761744`, -36.200730878828956`, 
+                    41.315939562158796`}, {94.0993318359183, 
+                    28.87260740030104, 9.493803466806575}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{12.433691817761744`, -36.200730878828956`, 
+                    41.315939562158796`}, {-81.20623324710459, \
+-11.536405385316751`, -54.325730014546615`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 14->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-14.456464391485103`, -16.16378659157256, 
+                    10.945797662866404`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{54.90445568693096, 27.918687488550578`, 
+                    0.15541236595868213`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-73.33762401739924, 
+                    8.390361984735772, -40.93492070581471}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.456464391485103`, -16.16378659157256, 
+                    10.945797662866404`}, {54.90445568693096, 
+                    27.918687488550578`, 0.15541236595868213`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.456464391485103`, -16.16378659157256, 
+                    10.945797662866404`}, {-73.33762401739924, 
+                    8.390361984735772, -40.93492070581471}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 15->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-11.335161577819324`, -33.8472712541058, 
+                    8.971109296992488}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{78.10792768809362, 6.787940743683382, 
+                    32.46681697238216}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-69.38828559683235, 
+                    2.4800535043194403`, -24.29826430835633}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-11.335161577819324`, -33.8472712541058, 
+                    8.971109296992488}, {78.10792768809362, 6.787940743683382,
+                     32.46681697238216}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-11.335161577819324`, -33.8472712541058, 
+                    8.971109296992488}, {-69.38828559683235, 
+                    2.4800535043194403`, -24.29826430835633}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 16->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-2.7762659348921046`, -13.747837163224588`, 
+                    41.074923804789954`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{71.31310796021086, 23.36295182151564, 
+                    20.259950129160686`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-65.70493665372271, 
+                    11.161894601704102`, -30.750032207690715`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.7762659348921046`, -13.747837163224588`, 
+                    41.074923804789954`}, {71.31310796021086, 
+                    23.36295182151564, 20.259950129160686`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.7762659348921046`, -13.747837163224588`, 
+                    41.074923804789954`}, {-65.70493665372271, 
+                    11.161894601704102`, -30.750032207690715`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 17->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{11.045538780666266`, -28.079512399681647`, 
+                    9.070043651381788}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{67.02892489652086, 36.49481784065131, 
+                    32.549380724494114`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-84.54044515013221, 
+                    3.6872188238196317`, -62.88072354973537}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{11.045538780666266`, -28.079512399681647`, 
+                    9.070043651381788}, {67.02892489652086, 36.49481784065131,
+                     32.549380724494114`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{11.045538780666266`, -28.079512399681647`, 
+                    9.070043651381788}, {-84.54044515013221, 
+                    3.6872188238196317`, -62.88072354973537}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 18->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{1.0018160872318491`, -36.14112023571155, 
+                    40.291092798550686`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{61.041800263905984`, 18.56491882012668, 
+                    23.95035171304994}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-79.65166272886415, 
+                    8.850598827991671, -55.60878127765293}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{1.0018160872318491`, -36.14112023571155, 
+                    40.291092798550686`}, {61.041800263905984`, 
+                    18.56491882012668, 23.95035171304994}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{1.0018160872318491`, -36.14112023571155, 
+                    40.291092798550686`}, {-79.65166272886415, 
+                    8.850598827991671, -55.60878127765293}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 19->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-14.665720126500101`, -35.381847812121066`, 
+                    19.061218630565044`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{77.44881553874413, 7.168620056196776, 
+                    22.55450763058265}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-85.69946133431053, -2.9528659954484935`, \
+-32.10921525108298}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.665720126500101`, -35.381847812121066`, 
+                    19.061218630565044`}, {77.44881553874413, 
+                    7.168620056196776, 22.55450763058265}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.665720126500101`, -35.381847812121066`, 
+                    19.061218630565044`}, {-85.69946133431053, \
+-2.9528659954484935`, -32.10921525108298}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 20->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-24.44554847252294, -42.20736019364508, 
+                    24.63922914676671}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{69.00964890384162, 26.669347447713992`, 
+                    0.32827304293132187`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-84.28285911336553, 
+                    13.53876718170238, -35.84429399949202}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-24.44554847252294, -42.20736019364508, 
+                    24.63922914676671}, {69.00964890384162, 
+                    26.669347447713992`, 0.32827304293132187`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-24.44554847252294, -42.20736019364508, 
+                    24.63922914676671}, {-84.28285911336553, 
+                    13.53876718170238, -35.84429399949202}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 21->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-5.73797038423633, -25.900675015026607`, 
+                    8.281781409502727}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{92.20803313421715, 21.70162218186851, 
+                    23.3521321971794}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-56.85501613858307, -3.3215213249779394`, \
+-30.570677450640922`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-5.73797038423633, -25.900675015026607`, 
+                    8.281781409502727}, {92.20803313421715, 21.70162218186851,
+                     23.3521321971794}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-5.73797038423633, -25.900675015026607`, 
+                    8.281781409502727}, {-56.85501613858307, \
+-3.3215213249779394`, -30.570677450640922`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False,
+                 ImageSize->{360., 297.00537669833693`},
+                 ImageSizeRaw->Automatic,
+                 
+                 ViewPoint->{1.0483385412630066`, -3.2044214141049476`, 
+                  0.2875233968361506},
+                 
+                 ViewVertical->{0.1668822750384017, -0.9467299321663254, 
+                  1.6510138684454077`}], 22->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-1.7366345230610234`, -44.40196763403257, 
+                    26.475939374103973`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{72.30236806268577, 20.361398878697376`, 
+                    13.322514391789085`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-62.062690851019326`, 
+                    4.427621066496397, -61.787474003176186`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-1.7366345230610234`, -44.40196763403257, 
+                    26.475939374103973`}, {72.30236806268577, 
+                    20.361398878697376`, 13.322514391789085`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-1.7366345230610234`, -44.40196763403257, 
+                    26.475939374103973`}, {-62.062690851019326`, 
+                    4.427621066496397, -61.787474003176186`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 23->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-12.177708180832173`, -41.79090888584254, 
+                    8.080526291739702}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{87.51063130591447, 39.35783756934998, 
+                    0.5881698482629574}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-63.87189472624637, 
+                    3.0273838233331007`, -54.35577456511738}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.177708180832173`, -41.79090888584254, 
+                    8.080526291739702}, {87.51063130591447, 39.35783756934998,
+                     0.5881698482629574}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.177708180832173`, -41.79090888584254, 
+                    8.080526291739702}, {-63.87189472624637, 
+                    3.0273838233331007`, -54.35577456511738}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 24->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-22.624448348621858`, -14.526349198182686`, 
+                    36.830296676114905`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{75.48637337787414, 11.735789041591058`, 
+                    3.215675315069305}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-68.66714290968918, 
+                    5.434609770910453, -52.78736901578761}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-22.624448348621858`, -14.526349198182686`, 
+                    36.830296676114905`}, {75.48637337787414, 
+                    11.735789041591058`, 3.215675315069305}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-22.624448348621858`, -14.526349198182686`, 
+                    36.830296676114905`}, {-68.66714290968918, 
+                    5.434609770910453, -52.78736901578761}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 25->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-10.04112049834659, -20.477394841149888`, 
+                    28.29432941169391}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{56.70456663972763, 23.294940213344052`, 
+                    28.078191830530244`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-63.43725225801886, -19.270881818361918`, \
+-40.229560832202175`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.04112049834659, -20.477394841149888`, 
+                    28.29432941169391}, {56.70456663972763, 
+                    23.294940213344052`, 28.078191830530244`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.04112049834659, -20.477394841149888`, 
+                    28.29432941169391}, {-63.43725225801886, \
+-19.270881818361918`, -40.229560832202175`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 26->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-10.385659540018192`, -7.550910731203032, 
+                    23.57422864612215}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{65.13009961502499, 18.76984856026687, 
+                    20.769525742638955`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-80.21305988861076, 
+                    3.3628383445800383`, -61.72835843598305}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.385659540018192`, -7.550910731203032, 
+                    23.57422864612215}, {65.13009961502499, 18.76984856026687,
+                     20.769525742638955`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.385659540018192`, -7.550910731203032, 
+                    23.57422864612215}, {-80.21305988861076, 
+                    3.3628383445800383`, -61.72835843598305}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 27->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-18.728055407083684`, -23.91237062949932, 
+                    32.88150398793331}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{87.05868977505376, 28.160530381290773`, 
+                    18.415097685457617`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-78.45945229191132, 
+                    2.0544767633101033`, -34.76121130121643}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-18.728055407083684`, -23.91237062949932, 
+                    32.88150398793331}, {87.05868977505376, 
+                    28.160530381290773`, 18.415097685457617`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-18.728055407083684`, -23.91237062949932, 
+                    32.88150398793331}, {-78.45945229191132, 
+                    2.0544767633101033`, -34.76121130121643}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 28->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-14.053857721614865`, -38.506594569004534`, 
+                    11.306425371671416`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.29145246748968, 26.3433030302691, 
+                    0.24032222655439028`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-68.87242083631268, -14.893797851236133`, \
+-49.497978490248904`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.053857721614865`, -38.506594569004534`, 
+                    11.306425371671416`}, {66.29145246748968, 
+                    26.3433030302691, 0.24032222655439028`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.053857721614865`, -38.506594569004534`, 
+                    11.306425371671416`}, {-68.87242083631268, \
+-14.893797851236133`, -49.497978490248904`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 29->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-10.685891386813761`, -33.10426757545687, 
+                    42.30229582589147}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{81.15995761800417, 43.49388385585635, 
+                    30.709146561009362`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-74.40966294171974, 
+                    3.8072431705063794`, -53.7594102032105}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.685891386813761`, -33.10426757545687, 
+                    42.30229582589147}, {81.15995761800417, 43.49388385585635,
+                     30.709146561009362`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.685891386813761`, -33.10426757545687, 
+                    42.30229582589147}, {-74.40966294171974, 
+                    3.8072431705063794`, -53.7594102032105}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 30->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-13.625904301483619`, -18.058606678660098`, 
+                    19.84010374403185}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{69.27013796524932, 24.183409634004466`, 
+                    13.45213205955082}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-67.08618103500828, 
+                    18.834089925804417`, -55.400824554329915`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-13.625904301483619`, -18.058606678660098`, 
+                    19.84010374403185}, {69.27013796524932, 
+                    24.183409634004466`, 13.45213205955082}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-13.625904301483619`, -18.058606678660098`, 
+                    19.84010374403185}, {-67.08618103500828, 
+                    18.834089925804417`, -55.400824554329915`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 31->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-3.7653524846766144`, -21.44093755612316, 
+                    30.713071085058765`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{83.57878984591092, 25.643923967370934`, 
+                    3.2805026021130956`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-61.40913532768202, 
+                    7.881748595099151, -52.488572714001414`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-3.7653524846766144`, -21.44093755612316, 
+                    30.713071085058765`}, {83.57878984591092, 
+                    25.643923967370934`, 3.2805026021130956`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-3.7653524846766144`, -21.44093755612316, 
+                    30.713071085058765`}, {-61.40913532768202, 
+                    7.881748595099151, -52.488572714001414`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 32->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-2.7938096406118644`, -11.527205753782212`, 
+                    39.88631780094891}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{91.35421726757318, 10.585727624085752`, 
+                    28.172303755437113`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-61.5499944493139, -7.237518077480149, \
+-25.4655789938222}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.7938096406118644`, -11.527205753782212`, 
+                    39.88631780094891}, {91.35421726757318, 
+                    10.585727624085752`, 28.172303755437113`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.7938096406118644`, -11.527205753782212`, 
+                    39.88631780094891}, {-61.5499944493139, \
+-7.237518077480149, -25.4655789938222}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 33->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-2.4445551060774617`, -11.072415144205976`, 
+                    38.11485817095983}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{81.31281571713771, 30.334322572866586`, 
+                    5.884476277501747}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-74.6202409944365, -14.94908536159556, \
+-35.77606233842604}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.4445551060774617`, -11.072415144205976`, 
+                    38.11485817095983}, {81.31281571713771, 
+                    30.334322572866586`, 5.884476277501747}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.4445551060774617`, -11.072415144205976`, 
+                    38.11485817095983}, {-74.6202409944365, \
+-14.94908536159556, -35.77606233842604}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 34->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-8.875748415654453, -28.057330655965742`, 
+                    26.561398481037692`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{68.19568665555747, 17.687659844758105`, 
+                    29.319330056419048`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-47.96076987165539, 
+                    8.57810930700543, -31.834473207867724`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.875748415654453, -28.057330655965742`, 
+                    26.561398481037692`}, {68.19568665555747, 
+                    17.687659844758105`, 29.319330056419048`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.875748415654453, -28.057330655965742`, 
+                    26.561398481037692`}, {-47.96076987165539, 
+                    8.57810930700543, -31.834473207867724`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False,
+                 ImageSize->{360.9346749516371, 341.08580642285295`},
+                 ImageSizeRaw->Automatic,
+                 
+                 ViewPoint->{-2.554176898926359, -1.0092793724134508`, 
+                  1.9767487238927555`},
+                 
+                 ViewVertical->{-0.8575639630021801, 0.799572261704174, 
+                  0.22328242907913481`}], 35->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-20.96753535270224, -20.306850886221298`, 
+                    41.81957287816052}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{67.98403329625276, 24.06457613748228, 
+                    6.592633268313115}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-75.70451117723682, -11.599336597757631`, \
+-55.12861108020766}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-20.96753535270224, -20.306850886221298`, 
+                    41.81957287816052}, {67.98403329625276, 24.06457613748228,
+                     6.592633268313115}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-20.96753535270224, -20.306850886221298`, 
+                    41.81957287816052}, {-75.70451117723682, \
+-11.599336597757631`, -55.12861108020766}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 36->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{5.468180590856439, -35.031361957273404`, 
+                    28.042340441710948`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{60.16057959365817, 8.86202197324069, 
+                    4.035179831075311}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-58.065802432593955`, -12.053757711654033`, \
+-25.82725145190667}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.468180590856439, -35.031361957273404`, 
+                    28.042340441710948`}, {60.16057959365817, 
+                    8.86202197324069, 4.035179831075311}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.468180590856439, -35.031361957273404`, 
+                    28.042340441710948`}, {-58.065802432593955`, \
+-12.053757711654033`, -25.82725145190667}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 37->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-6.365855752939463, -35.01678657417726, 
+                    25.705694732457467`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{87.13470390013948, 35.988001746528184`, 
+                    8.010742507706993}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-56.61800851728904, -3.442297568330825, \
+-31.379667637658166`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-6.365855752939463, -35.01678657417726, 
+                    25.705694732457467`}, {87.13470390013948, 
+                    35.988001746528184`, 8.010742507706993}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-6.365855752939463, -35.01678657417726, 
+                    25.705694732457467`}, {-56.61800851728904, \
+-3.442297568330825, -31.379667637658166`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 38->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{5.342715193703488, -32.50757635884241, 
+                    45.42239201147495}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{64.74043038265967, 21.492355928601167`, 
+                    15.37633476966424}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-74.85751450497378, 
+                    5.402299856753456, -34.48832919007352}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.342715193703488, -32.50757635884241, 
+                    45.42239201147495}, {64.74043038265967, 
+                    21.492355928601167`, 15.37633476966424}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.342715193703488, -32.50757635884241, 
+                    45.42239201147495}, {-74.85751450497378, 
+                    5.402299856753456, -34.48832919007352}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False,
+                 ImageSize->{360., 340.6502794859964},
+                 ImageSizeRaw->Automatic,
+                 
+                 ViewPoint->{-1.3048669867970644`, -1.2680580292674215`, 
+                  2.852954780780371},
+                 
+                 ViewVertical->{-0.9184210604142727, 0.2938712819641703, 
+                  0.49622374336006203`}], 39->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-9.586499784475262, -23.026043363253734`, 
+                    12.328808395451617`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{74.49359179500223, 25.690310852166053`, 
+                    35.504842547297926`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-66.14923631638345, 
+                    10.137191494083023`, -60.437632060944836`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.586499784475262, -23.026043363253734`, 
+                    12.328808395451617`}, {74.49359179500223, 
+                    25.690310852166053`, 35.504842547297926`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.586499784475262, -23.026043363253734`, 
+                    12.328808395451617`}, {-66.14923631638345, 
+                    10.137191494083023`, -60.437632060944836`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 40->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-9.823626176287103, -10.62225309964704, 
+                    7.657390463186253}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{63.85574843192311, 21.315003910098635`, 
+                    36.00177345141948}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-61.18272069476666, -4.505596870395183, \
+-61.75372439046794}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.823626176287103, -10.62225309964704, 
+                    7.657390463186253}, {63.85574843192311, 
+                    21.315003910098635`, 36.00177345141948}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.823626176287103, -10.62225309964704, 
+                    7.657390463186253}, {-61.18272069476666, \
+-4.505596870395183, -61.75372439046794}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 41->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-4.533889955547681, -5.560220470480928, 
+                    40.52320400663792}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{68.06734552874099, 25.6279063511906, 
+                    12.619260019110214`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-58.76471973825441, 
+                    11.463033392094683`, -56.04323409213073}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-4.533889955547681, -5.560220470480928, 
+                    40.52320400663792}, {68.06734552874099, 25.6279063511906, 
+                    12.619260019110214`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-4.533889955547681, -5.560220470480928, 
+                    40.52320400663792}, {-58.76471973825441, 
+                    11.463033392094683`, -56.04323409213073}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 42->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{6.479508812051567, -17.388846694379367`, 
+                    11.625236325550539`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.73370947829792, 11.124304264491752`, 
+                    6.675832621471059}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-76.80138341742504, 
+                    14.42931527641323, -54.63475301457024}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.479508812051567, -17.388846694379367`, 
+                    11.625236325550539`}, {66.73370947829792, 
+                    11.124304264491752`, 6.675832621471059}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.479508812051567, -17.388846694379367`, 
+                    11.625236325550539`}, {-76.80138341742504, 
+                    14.42931527641323, -54.63475301457024}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 43->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{5.044499355928939, -8.80312396679895, 
+                    34.91449508595256}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{86.337007696412, 12.106505482292167`, 
+                    1.1960426278933411`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-81.21882619293856, -9.797007415274404, \
+-33.04250700066735}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.044499355928939, -8.80312396679895, 
+                    34.91449508595256}, {86.337007696412, 12.106505482292167`,
+                     1.1960426278933411`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.044499355928939, -8.80312396679895, 
+                    34.91449508595256}, {-81.21882619293856, \
+-9.797007415274404, -33.04250700066735}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 44->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-1.308608894278957, -39.99904319092851, 
+                    7.297694988443773}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{59.29679876748728, 41.77571013919389, 
+                    20.15403502502734}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-55.521295476791124`, -18.442388638549705`, \
+-59.21833122835188}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-1.308608894278957, -39.99904319092851, 
+                    7.297694988443773}, {59.29679876748728, 41.77571013919389,
+                     20.15403502502734}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-1.308608894278957, -39.99904319092851, 
+                    7.297694988443773}, {-55.521295476791124`, \
+-18.442388638549705`, -59.21833122835188}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 45->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-19.916150816308697`, -8.86325835175478, 
+                    45.91786443590784}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{75.05095296764212, 29.2727847627341, 
+                    14.912654733351744`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-84.70553407745751, -13.86332756275937, \
+-46.58628046813476}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-19.916150816308697`, -8.86325835175478, 
+                    45.91786443590784}, {75.05095296764212, 29.2727847627341, 
+                    14.912654733351744`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-19.916150816308697`, -8.86325835175478, 
+                    
+                    45.91786443590784}, {-84.70553407745751, \
+-13.86332756275937, -46.58628046813476}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 46->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-2.172794294629621, -17.138980537165665`, 
+                    12.777969199727913`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{61.59901450076934, 31.648022463182205`, 
+                    1.2334680044515522`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-82.39257441935798, -11.119525863124867`, \
+-56.09881115424572}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.172794294629621, -17.138980537165665`, 
+                    12.777969199727913`}, {61.59901450076934, 
+                    31.648022463182205`, 1.2334680044515522`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.172794294629621, -17.138980537165665`, 
+                    12.777969199727913`}, {-82.39257441935798, \
+-11.119525863124867`, -56.09881115424572}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 47->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-4.0148931264081495`, -20.97962459659793, 
+                    16.98199463736983}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{70.31145637419621, 33.97090907601279, 
+                    19.05220006030688}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-83.8361440429396, 
+                    6.7685049742948395`, -53.27792469580233}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-4.0148931264081495`, -20.97962459659793, 
+                    16.98199463736983}, {70.31145637419621, 33.97090907601279,
+                     19.05220006030688}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-4.0148931264081495`, -20.97962459659793, 
+                    16.98199463736983}, {-83.8361440429396, 
+                    6.7685049742948395`, -53.27792469580233}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 48->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-25.780012101373526`, -44.39159364710938, 
+                    16.662968299485904`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.28699506472448, 14.679973517289898`, 
+                    18.717306808477147`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-68.24506363580082, -14.432923264787117`, \
+-54.91413227521232}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-25.780012101373526`, -44.39159364710938, 
+                    16.662968299485904`}, {66.28699506472448, 
+                    14.679973517289898`, 18.717306808477147`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-25.780012101373526`, -44.39159364710938, 
+                    16.662968299485904`}, {-68.24506363580082, \
+-14.432923264787117`, -54.91413227521232}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 49->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{4.059359715680334, -17.944219873947702`, 
+                    8.673132823214026}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{64.53057052204873, 33.32922534542587, 
+                    35.88610891953179}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-86.99429675847061, -15.867184607313074`, \
+-55.8263603375628}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{4.059359715680334, -17.944219873947702`, 
+                    8.673132823214026}, {64.53057052204873, 33.32922534542587,
+                     35.88610891953179}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{4.059359715680334, -17.944219873947702`, 
+                    8.673132823214026}, {-86.99429675847061, \
+-15.867184607313074`, -55.8263603375628}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 50->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{4.946897893352504, -9.810513051277596, 
+                    34.86935303273206}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{56.901311105478214`, 44.08303351545993, 
+                    7.509564230658441}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-51.67224200614686, -4.771485774097914, \
+-30.751027269160836`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{4.946897893352504, -9.810513051277596, 
+                    34.86935303273206}, {56.901311105478214`, 
+                    44.08303351545993, 7.509564230658441}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{4.946897893352504, -9.810513051277596, 
+                    34.86935303273206}, {-51.67224200614686, \
+-4.771485774097914, -30.751027269160836`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 51->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-8.962697970453053, -19.535632144040946`, 
+                    34.0928014318359}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{92.33145461958168, 20.95049559670281, 
+                    34.993017227690984`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-61.21682381519909, 
+                    15.083712103057973`, -42.87537078934415}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.962697970453053, -19.535632144040946`, 
+                    34.0928014318359}, {92.33145461958168, 20.95049559670281, 
+                    34.993017227690984`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.962697970453053, -19.535632144040946`, 
+                    34.0928014318359}, {-61.21682381519909, 
+                    15.083712103057973`, -42.87537078934415}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 52->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-14.510228101801847`, -27.758710851704592`, 
+                    14.944678466911206`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{58.52103713491684, 20.615869891242784`, 
+                    0.707662722346214}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-79.1345888374246, -13.892301400218077`, \
+-43.91286766800159}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.510228101801847`, -27.758710851704592`, 
+                    14.944678466911206`}, {58.52103713491684, 
+                    20.615869891242784`, 0.707662722346214}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-14.510228101801847`, -27.758710851704592`, 
+                    14.944678466911206`}, {-79.1345888374246, \
+-13.892301400218077`, -43.91286766800159}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 53->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-19.82994552682946, -17.824774192577237`, 
+                    14.01437552387361}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{74.11842590668054, 30.949267144344436`, 
+                    8.103539280908635}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-80.43693993842007, 
+                    5.04958318815076, -59.73714609006527}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-19.82994552682946, -17.824774192577237`, 
+                    14.01437552387361}, {74.11842590668054, 
+                    30.949267144344436`, 8.103539280908635}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-19.82994552682946, -17.824774192577237`, 
+                    14.01437552387361}, {-80.43693993842007, 
+                    5.04958318815076, -59.73714609006527}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 54->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-22.209600478796492`, -12.665075669046388`, 
+                    24.796274457693066`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{55.367860282815045`, 29.901533976211173`, 
+                    11.783902865666988`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-84.96212180711069, 
+                    3.5571321030643874`, -52.320010625160194`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-22.209600478796492`, -12.665075669046388`, 
+                    24.796274457693066`}, {55.367860282815045`, 
+                    29.901533976211173`, 11.783902865666988`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-22.209600478796492`, -12.665075669046388`, 
+                    24.796274457693066`}, {-84.96212180711069, 
+                    3.5571321030643874`, -52.320010625160194`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 55->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-8.612071734913368, -26.678789250547936`, 
+                    29.99532886731084}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{67.09221767618604, 25.13299010118465, 
+                    20.6001955845705}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-84.13041228674965, 
+                    13.642846891569942`, -30.434163728205583`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.612071734913368, -26.678789250547936`, 
+                    29.99532886731084}, {67.09221767618604, 25.13299010118465,
+                     20.6001955845705}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.612071734913368, -26.678789250547936`, 
+                    29.99532886731084}, {-84.13041228674965, 
+                    13.642846891569942`, -30.434163728205583`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 56->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{6.025904630787996, -22.707749299076433`, 
+                    7.3094710596425685`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{84.97005575188427, 17.863533544065977`, 
+                    24.946082910331526`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-76.9614661408437, 
+                    16.703359787484086`, -38.007224977413365`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.025904630787996, -22.707749299076433`, 
+                    7.3094710596425685`}, {84.97005575188427, 
+                    17.863533544065977`, 24.946082910331526`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.025904630787996, -22.707749299076433`, 
+                    7.3094710596425685`}, {-76.9614661408437, 
+                    16.703359787484086`, -38.007224977413365`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 57->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-23.655196074545945`, -34.65490537077993, 
+                    43.9327009822723}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.13749544148928, 33.497374512613334`, 
+                    27.472021621164217`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-72.00571734504608, -15.8429084406331, \
+-23.401143449641857`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-23.655196074545945`, -34.65490537077993, 
+                    43.9327009822723}, {66.13749544148928, 
+                    33.497374512613334`, 27.472021621164217`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-23.655196074545945`, -34.65490537077993, 
+                    43.9327009822723}, {-72.00571734504608, \
+-15.8429084406331, -23.401143449641857`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 58->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-4.903414597423807, -24.889485834933517`, 
+                    43.165187889426186`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{67.7542134248875, 26.813366806400328`, 
+                    29.481265669533258`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-80.61013728227678, 
+                    11.139547142810851`, -52.281983061246585`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-4.903414597423807, -24.889485834933517`, 
+                    43.165187889426186`}, {67.7542134248875, 
+                    26.813366806400328`, 29.481265669533258`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-4.903414597423807, -24.889485834933517`, 
+                    43.165187889426186`}, {-80.61013728227678, 
+                    11.139547142810851`, -52.281983061246585`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 59->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-10.220351943480093`, -28.495300198589376`, 
+                    34.239275060253725`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{56.472306320476065`, 24.99186115227187, 
+                    29.622112622453244`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-85.2595312757713, 
+                    14.56145169081341, -58.63639655732411}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.220351943480093`, -28.495300198589376`, 
+                    34.239275060253725`}, {56.472306320476065`, 
+                    24.99186115227187, 29.622112622453244`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.220351943480093`, -28.495300198589376`, 
+                    34.239275060253725`}, {-85.2595312757713, 
+                    14.56145169081341, -58.63639655732411}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 60->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-25.644834820692456`, -15.018909344413956`, 
+                    28.687268695853014`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{83.35385981086021, 
+                    22.438588699456464`, -1.089325968627847}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-66.30405583861159, -1.6067709247625885`, \
+-33.25155696786654}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-25.644834820692456`, -15.018909344413956`, 
+                    28.687268695853014`}, {83.35385981086021, 
+                    22.438588699456464`, -1.089325968627847}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-25.644834820692456`, -15.018909344413956`, 
+                    28.687268695853014`}, {-66.30405583861159, \
+-1.6067709247625885`, -33.25155696786654}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 61->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-6.0219355091142885`, -11.88340059530654, 
+                    17.533504480303243`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{59.35418498589526, 44.8949362101835, 
+                    31.018050900377943`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-48.09335297479879, -18.037799197672985`, \
+-62.484748699396015`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-6.0219355091142885`, -11.88340059530654, 
+                    17.533504480303243`}, {59.35418498589526, 
+                    44.8949362101835, 31.018050900377943`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-6.0219355091142885`, -11.88340059530654, 
+                    17.533504480303243`}, {-48.09335297479879, \
+-18.037799197672985`, -62.484748699396015`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 62->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-24.402766356808105`, -9.358432998631102, 
+                    29.414474607600802`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{71.45340186655464, 9.125395575450266, 
+                    34.28297086898358}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-71.59128904046091, -10.634212532131027`, \
+-28.906332124125278`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-24.402766356808105`, -9.358432998631102, 
+                    29.414474607600802`}, {71.45340186655464, 
+                    9.125395575450266, 34.28297086898358}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-24.402766356808105`, -9.358432998631102, 
+                    29.414474607600802`}, {-71.59128904046091, \
+-10.634212532131027`, -28.906332124125278`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 63->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-20.881544593847774`, -18.66969520153326, 
+                    9.688724944928396}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{71.4178491086563, 16.00891755027656, 
+                    18.482382025471757`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-62.09431733151274, -11.248625050234669`, \
+-55.5892624245371}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-20.881544593847774`, -18.66969520153326, 
+                    9.688724944928396}, {71.4178491086563, 16.00891755027656, 
+                    18.482382025471757`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-20.881544593847774`, -18.66969520153326, 
+                    9.688724944928396}, {-62.09431733151274, \
+-11.248625050234669`, -55.5892624245371}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 64->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-10.542246606662825`, -26.241262440652406`, 
+                    34.55384566664552}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{63.77931618034323, 27.19269267994888, 
+                    23.79409689454775}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-86.01361580374956, -15.375534683226736`, \
+-30.34693136417406}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.542246606662825`, -26.241262440652406`, 
+                    34.55384566664552}, {63.77931618034323, 27.19269267994888,
+                     23.79409689454775}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.542246606662825`, -26.241262440652406`, 
+                    34.55384566664552}, {-86.01361580374956, \
+-15.375534683226736`, -30.34693136417406}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 65->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{5.299691465254345, -6.852252558506962, 
+                    27.489428823192263`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{54.340374749734096`, 21.115680288224414`, 
+                    7.062977562352771}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    
+                    SphereBox[{-75.11364675859997, -6.641680650422731, \
+-32.01218533855539}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.299691465254345, -6.852252558506962, 
+                    27.489428823192263`}, {54.340374749734096`, 
+                    21.115680288224414`, 7.062977562352771}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.299691465254345, -6.852252558506962, 
+                    27.489428823192263`}, {-75.11364675859997, \
+-6.641680650422731, -32.01218533855539}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 66->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-16.148737660694362`, -35.1307422601685, 
+                    6.873815099716545}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{70.09146243166435, 29.096741418985932`, 
+                    33.752671201798464`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-59.337806099673315`, -12.81866966354097, \
+-59.12633300310137}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-16.148737660694362`, -35.1307422601685, 
+                    6.873815099716545}, {70.09146243166435, 
+                    29.096741418985932`, 33.752671201798464`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-16.148737660694362`, -35.1307422601685, 
+                    6.873815099716545}, {-59.337806099673315`, \
+-12.81866966354097, -59.12633300310137}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 67->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{9.624935713544392, -17.589694029867644`, 
+                    40.504352586509775`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{57.42159540220584, 30.469554749320825`, 
+                    9.534228779786922}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-49.67298412724894, 
+                    11.03182077902812, -59.937044299481755`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{9.624935713544392, -17.589694029867644`, 
+                    40.504352586509775`}, {57.42159540220584, 
+                    30.469554749320825`, 9.534228779786922}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{9.624935713544392, -17.589694029867644`, 
+                    40.504352586509775`}, {-49.67298412724894, 
+                    11.03182077902812, -59.937044299481755`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 68->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-21.434845772525545`, -16.547673749205245`, 
+                    22.734922307962144`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.87858888945914, 9.807962913496848, 
+                    20.996550897676975`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-53.82907192492594, 
+                    10.556209514021798`, -38.010590631938264`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-21.434845772525545`, -16.547673749205245`, 
+                    22.734922307962144`}, {66.87858888945914, 
+                    9.807962913496848, 20.996550897676975`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-21.434845772525545`, -16.547673749205245`, 
+                    22.734922307962144`}, {-53.82907192492594, 
+                    10.556209514021798`, -38.010590631938264`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 69->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-12.821534860765379`, -22.37871423676956, 
+                    35.28335144539154}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.99097909333636, 
+                    45.32131212851576, -1.9085878167091437`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-63.36820182820472, 
+                    7.6247345676839275`, -25.019512106131693`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.821534860765379`, -22.37871423676956, 
+                    35.28335144539154}, {66.99097909333636, 
+                    45.32131212851576, -1.9085878167091437`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-12.821534860765379`, -22.37871423676956, 
+                    35.28335144539154}, {-63.36820182820472, 
+                    7.6247345676839275`, -25.019512106131693`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 70->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{3.420107223218399, -44.55078950155978, 
+                    31.65768070016893}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{88.90106532229012, 41.6225412965118, 
+                    5.1554462793327644`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-72.74230774494261, 
+                    6.387792316366043, -33.79224299179253}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{3.420107223218399, -44.55078950155978, 
+                    31.65768070016893}, {88.90106532229012, 41.6225412965118, 
+                    5.1554462793327644`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{3.420107223218399, -44.55078950155978, 
+                    31.65768070016893}, {-72.74230774494261, 
+                    6.387792316366043, -33.79224299179253}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 71->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{4.400803901126669, -22.504496619272544`, 
+                    27.265141670374973`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{65.93330377863026, 40.061416603389176`, 
+                    22.662531326489784`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-62.943942672346836`, 
+                    14.745171392526242`, -62.97124563786157}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{4.400803901126669, -22.504496619272544`, 
+                    27.265141670374973`}, {65.93330377863026, 
+                    40.061416603389176`, 22.662531326489784`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{4.400803901126669, -22.504496619272544`, 
+                    27.265141670374973`}, {-62.943942672346836`, 
+                    14.745171392526242`, -62.97124563786157}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 72->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{13.183108738736752`, -10.188397311087158`, 
+                    41.66952245039432}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{63.988608346411056`, 28.410560223130663`, 
+                    5.165722753717809}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-57.51891394505398, 
+                    16.25606063634711, -55.006576262992034`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{13.183108738736752`, -10.188397311087158`, 
+                    41.66952245039432}, {63.988608346411056`, 
+                    28.410560223130663`, 5.165722753717809}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{13.183108738736752`, -10.188397311087158`, 
+                    41.66952245039432}, {-57.51891394505398, 
+                    16.25606063634711, -55.006576262992034`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 73->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{6.277368050282978, -40.30808713747624, 
+                    41.4432270662381}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{80.53885320650433, 28.54760188101938, 
+                    10.60963114414303}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-87.9166523672713, -12.082725906888708`, \
+-25.53293449595119}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.277368050282978, -40.30808713747624, 
+                    41.4432270662381}, {80.53885320650433, 28.54760188101938, 
+                    10.60963114414303}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.277368050282978, -40.30808713747624, 
+                    41.4432270662381}, {-87.9166523672713, \
+-12.082725906888708`, -25.53293449595119}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 74->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{12.978247122602571`, -18.775914131526164`, 
+                    19.30843955607451}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{74.77916683589706, 39.444063824594366`, 
+                    5.985743136441805}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-83.43365580137055, -18.62578511861827, \
+-44.74406666796127}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{12.978247122602571`, -18.775914131526164`, 
+                    19.30843955607451}, {74.77916683589706, 
+                    39.444063824594366`, 5.985743136441805}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{12.978247122602571`, -18.775914131526164`, 
+                    19.30843955607451}, {-83.43365580137055, \
+-18.62578511861827, -44.74406666796127}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 75->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-7.935858090204785, -44.33344852677526, 
+                    31.7749190522025}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{64.11904583198792, 12.845849379989456`, 
+                    4.647609809070254}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-82.06835676026327, -19.179188723820598`, \
+-27.459290261247126`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-7.935858090204785, -44.33344852677526, 
+                    31.7749190522025}, {64.11904583198792, 
+                    12.845849379989456`, 4.647609809070254}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-7.935858090204785, -44.33344852677526, 
+                    31.7749190522025}, {-82.06835676026327, \
+-19.179188723820598`, -27.459290261247126`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 76->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{8.727289838469932, -19.639877574475307`, 
+                    9.482696010129828}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{94.24268819346437, 42.76317016279225, 
+                    16.610591371522517`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-81.48471448077439, -7.922863650897173, \
+-45.287598966786156`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{8.727289838469932, -19.639877574475307`, 
+                    9.482696010129828}, {94.24268819346437, 42.76317016279225,
+                     16.610591371522517`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{8.727289838469932, -19.639877574475307`, 
+                    9.482696010129828}, {-81.48471448077439, \
+-7.922863650897173, -45.287598966786156`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 77->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{5.321924033520351, -25.75288540944306, 
+                    25.933178043961632`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{84.68331929797618, 30.99177226575873, 
+                    10.713104263858519`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-56.055401307096346`, 
+                    12.754020361361096`, -56.05772475597137}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.321924033520351, -25.75288540944306, 
+                    25.933178043961632`}, {84.68331929797618, 
+                    30.99177226575873, 10.713104263858519`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.321924033520351, -25.75288540944306, 
+                    25.933178043961632`}, {-56.055401307096346`, 
+                    12.754020361361096`, -56.05772475597137}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 78->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-6.298248977099358, -23.06669707243347, 
+                    44.342670306464676`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{59.6753387450113, 30.936724020733354`, 
+                    19.278150934451602`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-80.02819917684722, -9.478709497128879, \
+-46.53790653951379}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-6.298248977099358, -23.06669707243347, 
+                    44.342670306464676`}, {59.6753387450113, 
+                    30.936724020733354`, 19.278150934451602`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-6.298248977099358, -23.06669707243347, 
+                    44.342670306464676`}, {-80.02819917684722, \
+-9.478709497128879, -46.53790653951379}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 79->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-2.0754954178099707`, -15.561189326076672`, 
+                    7.605202761121596}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{87.93734302674999, 10.579661930702404`, 
+                    14.347779956140016`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-61.51511062481815, 
+                    6.820444209286873, -27.558254882795758`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.0754954178099707`, -15.561189326076672`, 
+                    7.605202761121596}, {87.93734302674999, 
+                    10.579661930702404`, 14.347779956140016`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.0754954178099707`, -15.561189326076672`, 
+                    7.605202761121596}, {-61.51511062481815, 
+                    6.820444209286873, -27.558254882795758`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 80->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{9.40083060623667, -8.169140195575352, 
+                    42.13133392367279}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{73.49077541493237, 11.838004795678376`, 
+                    22.10555528397883}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-79.51526239183234, -11.562290550104397`, \
+-43.84122025395953}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{9.40083060623667, -8.169140195575352, 
+                    42.13133392367279}, {73.49077541493237, 
+                    11.838004795678376`, 22.10555528397883}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{9.40083060623667, -8.169140195575352, 
+                    42.13133392367279}, {-79.51526239183234, \
+-11.562290550104397`, -43.84122025395953}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 81->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{3.1354646610404773`, -24.609097322166207`, 
+                    37.827481479294114`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{59.58804350225532, 30.653576685119237`, 
+                    13.369579334024039`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-58.64060966800531, -10.23946530801626, \
+-36.87945015966576}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{3.1354646610404773`, -24.609097322166207`, 
+                    37.827481479294114`}, {59.58804350225532, 
+                    30.653576685119237`, 13.369579334024039`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{3.1354646610404773`, -24.609097322166207`, 
+                    37.827481479294114`}, {-58.64060966800531, \
+-10.23946530801626, -36.87945015966576}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 82->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{6.478993030147, -19.10005926659089, 
+                    23.320740997757134`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{76.27110014981389, 8.799831715836984, 
+                    22.748967110613464`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-63.78515071170142, -15.887232137201526`, \
+-56.906940300563825`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.478993030147, -19.10005926659089, 
+                    23.320740997757134`}, {76.27110014981389, 
+                    8.799831715836984, 22.748967110613464`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{6.478993030147, -19.10005926659089, 
+                    
+                    23.320740997757134`}, {-63.78515071170142, \
+-15.887232137201526`, -56.906940300563825`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 83->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{11.467810215758565`, -25.59566094433402, 
+                    40.86647948687342}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{68.12104970453578, 30.12126842238381, 
+                    7.17315873654924}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-80.96283479667859, 
+                    0.9271229185145955, -26.828513499240422`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{11.467810215758565`, -25.59566094433402, 
+                    40.86647948687342}, {68.12104970453578, 30.12126842238381,
+                     7.17315873654924}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{11.467810215758565`, -25.59566094433402, 
+                    40.86647948687342}, {-80.96283479667859, 
+                    0.9271229185145955, -26.828513499240422`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 84->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{2.837564272885335, -28.185118582263776`, 
+                    36.979715142949395`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{81.96132051219796, 15.00117982625748, 
+                    26.20221006222262}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-55.56568326874611, -10.16059412324815, \
+-57.86752631356077}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{2.837564272885335, -28.185118582263776`, 
+                    36.979715142949395`}, {81.96132051219796, 
+                    15.00117982625748, 26.20221006222262}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{2.837564272885335, -28.185118582263776`, 
+                    36.979715142949395`}, {-55.56568326874611, \
+-10.16059412324815, -57.86752631356077}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 85->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-18.833293804291532`, -44.921031137370086`, 
+                    16.59431004990376}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{54.450438573848885`, 42.88123402153872, 
+                    22.520426299307005`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-80.06103184569568, 
+                    9.76742029154536, -61.9455303960037}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-18.833293804291532`, -44.921031137370086`, 
+                    16.59431004990376}, {54.450438573848885`, 
+                    42.88123402153872, 22.520426299307005`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-18.833293804291532`, -44.921031137370086`, 
+                    16.59431004990376}, {-80.06103184569568, 
+                    9.76742029154536, -61.9455303960037}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 86->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-2.1175121813311035`, -13.828720994768062`, 
+                    18.503945253715642`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{68.06553489452608, 32.42767313930351, 
+                    29.088668005711156`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-67.70192031276028, 
+                    4.215383933782701, -30.45318135710024}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.1175121813311035`, -13.828720994768062`, 
+                    18.503945253715642`}, {68.06553489452608, 
+                    32.42767313930351, 29.088668005711156`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-2.1175121813311035`, -13.828720994768062`, 
+                    18.503945253715642`}, {-67.70192031276028, 
+                    4.215383933782701, -30.45318135710024}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 87->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{5.952359041529239, -33.26038616621847, 
+                    30.84995760255908}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{59.248264428482344`, 43.45181172495472, 
+                    5.748762531304706}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-74.7126136575964, 
+                    17.893423647193526`, -38.742067304387454`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.952359041529239, -33.26038616621847, 
+                    30.84995760255908}, {59.248264428482344`, 
+                    43.45181172495472, 5.748762531304706}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{5.952359041529239, -33.26038616621847, 
+                    30.84995760255908}, {-74.7126136575964, 
+                    17.893423647193526`, -38.742067304387454`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 88->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{9.21029923505073, -30.050060929387826`, 
+                    37.64421423950056}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{76.57798542510066, 41.85440608093421, 
+                    25.576065988410647`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-66.23655523020572, -19.756903710582048`, \
+-39.29946824229349}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{9.21029923505073, -30.050060929387826`, 
+                    37.64421423950056}, {76.57798542510066, 41.85440608093421,
+                     25.576065988410647`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{9.21029923505073, -30.050060929387826`, 
+                    37.64421423950056}, {-66.23655523020572, \
+-19.756903710582048`, -39.29946824229349}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 89->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-8.618358797735464, -15.596105602406993`, 
+                    6.230026745140584}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{61.92600511698245, 9.052858148137322, 
+                    0.24024343266796677`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-52.46144715095309, 
+                    13.483810263367442`, -31.952461916938468`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.618358797735464, -15.596105602406993`, 
+                    6.230026745140584}, {61.92600511698245, 9.052858148137322,
+                     0.24024343266796677`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.618358797735464, -15.596105602406993`, 
+                    6.230026745140584}, {-52.46144715095309, 
+                    13.483810263367442`, -31.952461916938468`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 90->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-9.140423230569926, -21.54208909257062, 
+                    21.60985446180122}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{92.17595740883432, 41.11842424995632, 
+                    4.108328823958345}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-53.95686873057443, -14.367773676877508`, \
+-26.642385030885997`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.140423230569926, -21.54208909257062, 
+                    21.60985446180122}, {92.17595740883432, 41.11842424995632,
+                     4.108328823958345}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.140423230569926, -21.54208909257062, 
+                    21.60985446180122}, {-53.95686873057443, \
+-14.367773676877508`, -26.642385030885997`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 91->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-17.90417943962925, -40.88072241547244, 
+                    12.651478715917598`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{83.52459280870475, 7.674863882599471, 
+                    23.802525440477865`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-86.07534481411025, 
+                    18.53468965362168, -57.58556892040813}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-17.90417943962925, -40.88072241547244, 
+                    12.651478715917598`}, {83.52459280870475, 
+                    7.674863882599471, 23.802525440477865`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-17.90417943962925, -40.88072241547244, 
+                    12.651478715917598`}, {-86.07534481411025, 
+                    18.53468965362168, -57.58556892040813}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 92->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-19.065917679531086`, -36.3696041365188, 
+                    33.890246490768625`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{85.37700794460541, 38.614327384840564`, 
+                    3.5386141129735336`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-49.86924452410119, -6.66392667400208, \
+-49.47481240079575}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-19.065917679531086`, -36.3696041365188, 
+                    33.890246490768625`}, {85.37700794460541, 
+                    38.614327384840564`, 3.5386141129735336`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-19.065917679531086`, -36.3696041365188, 
+                    33.890246490768625`}, {-49.86924452410119, \
+-6.66392667400208, -49.47481240079575}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 93->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-8.416631525920348, -22.83233943544151, 
+                    12.330896460573129`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{66.09932034304033, 43.44946892061809, 
+                    16.625635051491074`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-74.6953606423211, 
+                    3.1234005262008013`, -25.931221140764144`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.416631525920348, -22.83233943544151, 
+                    12.330896460573129`}, {66.09932034304033, 
+                    43.44946892061809, 16.625635051491074`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-8.416631525920348, -22.83233943544151, 
+                    12.330896460573129`}, {-74.6953606423211, 
+                    3.1234005262008013`, -25.931221140764144`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 94->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{12.19709968810523, -6.5323466347999215`, 
+                    12.502031715294628`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{74.96773365671841, 23.598921586722863`, 
+                    8.696314289329052}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-73.67867966421572, -8.690841407152309, \
+-58.830741798361665`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{12.19709968810523, -6.5323466347999215`, 
+                    12.502031715294628`}, {74.96773365671841, 
+                    23.598921586722863`, 8.696314289329052}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{12.19709968810523, -6.5323466347999215`, 
+                    12.502031715294628`}, {-73.67867966421572, \
+-8.690841407152309, -58.830741798361665`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 95->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-9.550670304591943, -13.036209776566352`, 
+                    9.351412786828824}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{82.97895692673194, 15.528143271750924`, 
+                    25.006432603252946`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-68.89534042275727, -19.958480313869448`, \
+-49.77075350314834}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.550670304591943, -13.036209776566352`, 
+                    9.351412786828824}, {82.97895692673194, 
+                    15.528143271750924`, 25.006432603252946`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-9.550670304591943, -13.036209776566352`, 
+                    9.351412786828824}, {-68.89534042275727, \
+-19.958480313869448`, -49.77075350314834}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 96->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-13.732735824423553`, -30.54119317693109, 
+                    10.970635171123597`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{62.00484822054262, 9.864822144556815, 
+                    19.28652662077763}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-63.96507361769965, -11.056998183204296`, \
+-45.73975242631092}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-13.732735824423553`, -30.54119317693109, 
+                    10.970635171123597`}, {62.00484822054262, 
+                    9.864822144556815, 19.28652662077763}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-13.732735824423553`, -30.54119317693109, 
+                    10.970635171123597`}, {-63.96507361769965, \
+-11.056998183204296`, -45.73975242631092}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 97->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-0.5575951792706304, -43.77078012040476, 
+                    19.120854883946294`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{74.60790605456634, 28.07309990894341, 
+                    16.1854454544373}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-87.322142473284, -8.11959177522326, \
+-56.72032598201902}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-0.5575951792706304, -43.77078012040476, 
+                    19.120854883946294`}, {74.60790605456634, 
+                    28.07309990894341, 16.1854454544373}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-0.5575951792706304, -43.77078012040476, 
+                    19.120854883946294`}, {-87.322142473284, \
+-8.11959177522326, -56.72032598201902}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 98->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-18.16219962323876, -13.836538562708526`, 
+                    28.876017542808235`}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{64.35094953376355, 38.749950614386705`, 
+                    1.7252787730150487`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-86.50498745480373, -19.02529491470865, \
+-39.301520279536746`}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-18.16219962323876, -13.836538562708526`, 
+                    28.876017542808235`}, {64.35094953376355, 
+                    38.749950614386705`, 1.7252787730150487`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-18.16219962323876, -13.836538562708526`, 
+                    28.876017542808235`}, {-86.50498745480373, \
+-19.02529491470865, -39.301520279536746`}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 99->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{-10.121360966161657`, -11.275079601596929`, 
+                    9.808614543851789}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{71.58348861637485, 32.176298379050806`, 
+                    2.0868985056279357`}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-63.22989915986604, 
+                    12.808913897187747`, -53.73695624489096}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.121360966161657`, -11.275079601596929`, 
+                    9.808614543851789}, {71.58348861637485, 
+                    32.176298379050806`, 2.0868985056279357`}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{-10.121360966161657`, -11.275079601596929`, 
+                    9.808614543851789}, {-63.22989915986604, 
+                    12.808913897187747`, -53.73695624489096}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False], 100->
+                Graphics3DBox[{{
+                   {RGBColor[0.800498, 0.201504, 0.192061], 
+                    SphereBox[{3.5061069726195244`, -11.230655642840844`, 
+                    22.53351809235587}, 31]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{82.55430360645046, 12.894951052043414`, 
+                    9.443215355894026}, 24]}, 
+                   {RGBColor[0.93, 1, 1], 
+                    SphereBox[{-84.72111701598241, 
+                    12.338777849762305`, -44.8182704794476}, 24]}}, {
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{3.5061069726195244`, -11.230655642840844`, 
+                    22.53351809235587}, {82.55430360645046, 
+                    12.894951052043414`, 9.443215355894026}}, 10]}, 
+                   {GrayLevel[0.85], 
+                    CylinderBox[{{3.5061069726195244`, -11.230655642840844`, 
+                    22.53351809235587}, {-84.72111701598241, 
+                    12.338777849762305`, -44.8182704794476}}, 10]}}},
+                 BoxRatios->Automatic,
+                 Boxed->False]}, Dynamic[$CellContext`i7$$],
+                Alignment->Automatic,
+                BaseStyle->"ListAnimateCore",
+                ImageSize->All,
+                TransitionDirection->Horizontal,
+                TransitionDuration->0.5,
+                TransitionEffect->Automatic],
+               Identity,
+               Editable->True,
+               Selectable->True],
+              ImageMargins->10],
+             Deployed->False,
+             StripOnInput->False,
+             ScriptLevel->0,
+             GraphicsBoxOptions->{PreserveImageOptions->True},
+             Graphics3DBoxOptions->{PreserveImageOptions->True}],
+            Identity,
+            Editable->False,
+            Selectable->False],
+           Alignment->{Left, Center},
+           Background->GrayLevel[1],
+           Frame->1,
+           FrameStyle->GrayLevel[0, 0.2],
+           ItemSize->Automatic,
+           StripOnInput->False]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Top}}, 
+          "RowsIndexed" -> {}},
+        GridBoxDividers->{
+         "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+          "RowsIndexed" -> {}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.7], {
+             Offset[0.5599999999999999]}, 
+            Offset[0.7]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.4], {
+             Offset[0.8]}, 
+            Offset[0.4]}, "RowsIndexed" -> {}}], If[
+        And[
+         CurrentValue["NotebookSelected"], 
+         CurrentValue["SelectionOver"]], 
+        Manipulate`Dump`ReadControllerState[
+         Map[Manipulate`Dump`updateOneVar[#, 
+           CurrentValue["PreviousFormatTime"], 
+           CurrentValue["CurrentFormatTime"]]& , {
+           
+           Manipulate`Dump`controllerLink[{$CellContext`i7$$, \
+$CellContext`i7$174870$$}, "X1", 
+            If["DefaultAbsolute", True, "JB1"], False, {1, 100, 1}, 100, 
+            1.]}], 
+         CurrentValue[{
+          "ControllerData", {
+           "Gamepad", "Joystick", "Multi-Axis Controller"}}], {}]],
+       ImageSizeCache->{540., {281.66754150390625`, 288.83245849609375`}}],
+      DefaultBaseStyle->{},
+      FrameMargins->{{5, 5}, {5, 5}}],
+     BaselinePosition->Automatic,
+     ImageMargins->0],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "ListAnimate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.7070676570873013`*^9},ExpressionUUID->"e5b00227-bb68-4c67-82b0-\
+e5fb4c2badf6"]
+}, Open  ]]
+},
+WindowSize->{808, 845},
+WindowMargins->{{Automatic, 378}, {Automatic, 35}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 27, \
+2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 207, 4, 40, "Input", "ExpressionUUID" -> \
+"9db15828-5aa2-421a-be72-8d98ef3008ec"],
+Cell[790, 28, 1921, 44, 52, "Output", "ExpressionUUID" -> \
+"a89052e2-2b91-401e-865e-bc71a5374729"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2748, 77, 446, 10, 67, "Input", "ExpressionUUID" -> \
+"11d2be0e-41e2-437b-9617-4abd53024873"],
+Cell[3197, 89, 588, 16, 67, "Output", "ExpressionUUID" -> \
+"e9ab4911-f092-4391-a109-60d2b4fb328e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3822, 110, 274, 6, 40, "Input", "ExpressionUUID" -> \
+"d1e3c608-ade9-4345-9cb0-9713cc4d6ac1"],
+Cell[4099, 118, 213, 6, 40, "Output", "ExpressionUUID" -> \
+"02424fcf-6ae8-4a30-8729-be639d8349d8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4349, 129, 270, 6, 40, "Input", "ExpressionUUID" -> \
+"32357741-d8d1-4133-a2cc-5a02a5658a0f"],
+Cell[4622, 137, 237, 7, 40, "Output", "ExpressionUUID" -> \
+"d9600863-39ea-45e6-8eb9-cc04b9ac9357"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4896, 149, 246, 5, 40, "Input", "ExpressionUUID" -> \
+"2c4a4cdf-6aa1-496c-abd7-ca75277f1588"],
+Cell[5145, 156, 1535, 43, 40, "Output", "ExpressionUUID" -> \
+"6ff54b79-8648-4593-b987-3797a37ec422"]
+}, Open  ]],
+Cell[6695, 202, 2834, 76, 379, "Input", "ExpressionUUID" -> \
+"f697d4b5-83f2-4d14-9164-c83a6e2b5fca"],
+Cell[CellGroupData[{
+Cell[9554, 282, 261, 6, 40, "Input", "ExpressionUUID" -> \
+"dc884658-7fdd-4fea-b17b-c6f49c131b6e"],
+Cell[9818, 290, 1016, 23, 458, "Output", "ExpressionUUID" -> \
+"a5fd83c2-1e18-4bf1-af9e-694e91482c10"]
+}, Open  ]],
+Cell[10849, 316, 154, 3, 40, "Input", "ExpressionUUID" -> \
+"cbb5dcab-a933-4d97-8557-9ecf7b366257"],
+Cell[CellGroupData[{
+Cell[11028, 323, 677, 20, 67, "Input", "ExpressionUUID" -> \
+"8c8b92aa-902a-4197-921f-8487e71f9868"],
+Cell[11708, 345, 596, 17, 67, "Output", "ExpressionUUID" -> \
+"9d03d8f7-cef1-4d96-aec7-2ac1d411cdd8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12341, 367, 183, 4, 40, "Input", "ExpressionUUID" -> \
+"0a302b6c-7971-4e98-855c-0f2820abdac8"],
+Cell[12527, 373, 248, 7, 40, "Output", "ExpressionUUID" -> \
+"fa285bad-5804-490f-88a7-9c2bcd68f115"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12812, 385, 358, 10, 40, "Input", "ExpressionUUID" -> \
+"5164a76c-e10c-49e2-bace-15fdfd9fc4a5"],
+Cell[13173, 397, 115698, 2153, 606, "Output", "ExpressionUUID" -> \
+"e5b00227-bb68-4c67-82b0-e5fb4c2badf6"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
